@@ -1,6 +1,6 @@
-			  		Procesamiento Digital de Imágenes: Tarea 1
+﻿			  		Procesamiento Digital de Imágenes: Tarea 1
 						  Giselt G. Parra V.
-						    V-266.09.640
+						   
 
 
 
