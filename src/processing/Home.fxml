@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="720.0" prefWidth="1047.0" style="-fx-background-color: #111111;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="processing.HomeController">
+   <children>
+      <HBox alignment="CENTER_LEFT" blendMode="SRC_ATOP" fillHeight="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="43.0" prefWidth="850.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Text fill="#8d8888" strokeType="OUTSIDE" strokeWidth="0.0" text="Path File:">
+               <HBox.margin>
+                  <Insets left="15.0" right="5.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="ipath" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.55" prefHeight="26.0" prefWidth="184.0" promptText="Ruta absoluta de la imagen" style="-fx-background-color: #e4e6eb;" />
+            <MenuButton mnemonicParsing="false">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#OptionBMP" text="-">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#OptionBMP" prefWidth="50.0" text="BMP" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#OptionPBM" text="-">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#OptionPBM" prefWidth="50.0" text="PBM" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#OptionPGM" text="-">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#OptionPGM" prefWidth="50.0" text="PGM" />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#OptionPPM" text="-">
+                     <graphic>
+                        <Button mnemonicParsing="false" onAction="#OptionPPM" prefWidth="50.0" text="PPM" />
+                     </graphic>
+                  </MenuItem>
+              </items>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </MenuButton>
+            <Button fx:id="cargarOtros" layoutX="346.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="75.0" minHeight="-Infinity" minWidth="20.0" mnemonicParsing="false" onAction="#CargarOtrosAction" onMouseClicked="#CargarOtrosAction" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #242526;" text="Cargar" textFill="#a8a8a8" />
+            <Button fx:id="cargarNetpbm" maxHeight="-Infinity" maxWidth="128.0" minHeight="-Infinity" minWidth="50.0" mnemonicParsing="false" onAction="#CargarAction" onMouseClicked="#CargarAction" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: #242526;" text="Cargar Netpbm" textFill="#a8a8a8">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Button>
+            <Text fill="#8d8888" strokeType="OUTSIDE" strokeWidth="0.0" text="Exportar como:">
+               <HBox.margin>
+                  <Insets left="40.0" right="5.0" />
+               </HBox.margin>
+            </Text>
+            <TextField fx:id="outpath" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.55" prefHeight="26.0" prefWidth="144.0" promptText="Nombre_archivo" style="-fx-background-color: #e4e6eb;">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="cargarPBM" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="50.0" mnemonicParsing="false" onAction="#CargarPBMAction" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #242526;" text="PBM" textFill="#a8a8a8">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="cargarPGM" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="50.0" mnemonicParsing="false" onAction="#CargarPGMAction" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #242526;" text="PGM" textFill="#a8a8a8">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="cargarPPM" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="50.0" mnemonicParsing="false" onAction="#CargarPPMAction" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #242526;" text="PPM" textFill="#a8a8a8">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="cargar1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="50.0" mnemonicParsing="false" onAction="#CargarBMPAction" prefHeight="25.0" prefWidth="30.0" style="-fx-background-color: #242526;" text="Otros" textFill="#a8a8a8">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" fillHeight="false" layoutX="63.0" layoutY="311.0" snapToPixel="false" style="-fx-background-color: #222222; -fx-background-radius: 15;" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <BorderPane minHeight="500.0" snapToPixel="false" HBox.hgrow="NEVER">
+               <left>
+                  <VBox fx:id="VOp" alignment="CENTER_RIGHT" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="140.0" style="-fx-background-color: #111110; -fx-background-radius: 15;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="detalles" alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#DetallesButton" style="-fx-background-color: #18191a;" text="Detalles" textAlignment="CENTER" textFill="#8a8888">
+                           <VBox.margin>
+                              <Insets right="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="histograma" alignment="BOTTOM_RIGHT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#HistogramaButton" style="-fx-background-color: #18191a;" text="Histograma" textAlignment="CENTER" textFill="#8a8888">
+                           <VBox.margin>
+                              <Insets bottom="20.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Text fill="#807f7f" strokeType="OUTSIDE" strokeWidth="0.0" text=" Brillo" textAlignment="RIGHT" wrappingWidth="118.05224609375">
+                           <VBox.margin>
+                              <Insets right="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Slider fx:id="sliderBrillo" blendMode="SOFT_LIGHT" blockIncrement="1.0" max="255.0" min="-255.0" minorTickCount="25" onMouseClicked="#sliderBrilloAction" onMouseDragged="#sliderBrilloAction" value="1.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Slider>
+                        <Text fill="#807f7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Umbral" textAlignment="RIGHT" wrappingWidth="115.54638671875">
+                           <VBox.margin>
+                              <Insets right="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Slider fx:id="sliderUmbral" blendMode="SOFT_LIGHT" blockIncrement="1.0" max="255.0" min="1.0" minorTickCount="1" onMouseClicked="#sliderUmbralAction" onMouseDragged="#sliderUmbralAction" value="127.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Slider>
+                        <Text fill="#807f7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraste" textAlignment="RIGHT" wrappingWidth="115.54638671875">
+                           <VBox.margin>
+                              <Insets right="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Slider fx:id="sliderContraste" blendMode="SOFT_LIGHT" blockIncrement="0.1" max="2.0" min="0.01" minorTickCount="25" onMouseClicked="#sliderContrasteAction" onMouseDragged="#sliderContrasteAction" value="1.0">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </Slider>
+                        <ImageView id="imagen" fx:id="view2" fitHeight="94.0" fitWidth="116.0" pickOnBounds="true" preserveRatio="true">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </left>
+               <center>
+                  <VBox alignment="CENTER" fillWidth="false" pickOnBounds="false" BorderPane.alignment="CENTER">
+                     <children>
+                        <ScrollPane pannable="true" snapToPixel="false" style="-fx-background-color: #222222;" VBox.vgrow="NEVER">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <content>
+                              <BorderPane prefHeight="330.0" prefWidth="632.0" style="-fx-background-color: #222222;">
+                                 <center>
+                                    <ImageView id="imagen" fx:id="view1" mouseTransparent="true" pickOnBounds="true" smooth="false" BorderPane.alignment="CENTER">
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                    </ImageView>
+                                 </center>
+                              </BorderPane>
+                           </content>
+                        </ScrollPane>
+                        <VBox alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="596.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="16.0" prefWidth="575.0">
+                                 <children>
+                                    <Text fill="#807f7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Vecinos mas Cercanos" textAlignment="RIGHT" wrappingWidth="194.05224609375" />
+                                    <Text fill="#807f7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Zoom Out" textAlignment="RIGHT" wrappingWidth="97.05224609375" />
+                                    <Slider fx:id="sliderVecinos" blendMode="SOFT_LIGHT" max="1.5" maxWidth="-Infinity" min="0.5" minWidth="-Infinity" onMouseDragged="#zoomVecinos" prefWidth="80.0" value="1.0" />
+                                    <Text fill="#807f7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Zoom In" wrappingWidth="97.05224609375" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="16.0" prefWidth="575.0">
+                                 <children>
+                                    <Text fill="#807f7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Interpolacion Bilineal" textAlignment="RIGHT" wrappingWidth="194.05224609375" />
+                                    <Text fill="#807f7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Zoom Out" textAlignment="RIGHT" wrappingWidth="97.05224609375" />
+                                    <Slider fx:id="sliderInterpolacion" blendMode="SOFT_LIGHT" max="1.5" maxWidth="-Infinity" min="0.5" minWidth="-Infinity" onMouseDragged="#zoomInterpolacion" prefWidth="80.0" value="1.0" />
+                                    <Text fill="#807f7f" strokeType="OUTSIDE" strokeWidth="0.0" text="Zoom In" wrappingWidth="97.05224609375" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </center>
+               <opaqueInsets>
+                  <Insets bottom="10.0" top="10.0" />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </BorderPane>
+         </children>
+      </HBox>
+      <ScrollPane blendMode="SRC_ATOP" fitToHeight="true" fitToWidth="true" layoutX="10.0" layoutY="10.0" minViewportHeight="50.0" minViewportWidth="650.0" prefHeight="140.0" prefViewportHeight="50.0" prefViewportWidth="650.0" prefWidth="900.0" style="-fx-background-color: #111111;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <content>
+            <ButtonBar buttonMinWidth="100.0" prefHeight="136.0" prefWidth="700.0" style="-fx-background-color: #111111;">
+               <buttons>
+                  <ImageView fx:id="originalButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#originalButtomAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/ORIGINAL.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="negativoButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#BnegativoAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/NEG.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="grisesButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#grisesButtomAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/GREY.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="blanco_negroButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#blanco_negroButtomAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/BW.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="rotacionLButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#rotacionLButtomAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/rotL.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="rotacionRButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#rotacionRButtomAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/rotR.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro filas:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="nrowPro" blockIncrement="1.0" majorTickUnit="1.0" max="7.0" min="1.0" onMouseDragged="#promedioButtomAction" showTickLabels="true" value="1.0" />
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro columnas:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="ncolPro" blockIncrement="1.0" majorTickUnit="1.0" max="7.0" min="1.0" onMouseDragged="#promedioButtomAction" showTickLabels="true" value="1.0" />
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="promedioButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#FijarFiltro" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/PROM.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro filas:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="nrowMe" blockIncrement="1.0" majorTickUnit="1.0" max="7.0" min="1.0" onMouseDragged="#medianaButtomAction" showTickLabels="true" value="1.0" />
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro columnas:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="ncolMe" blockIncrement="1.0" majorTickUnit="1.0" max="7.0" min="1.0" onMouseDragged="#medianaButtomAction" showTickLabels="true" value="1.0" />
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="medianaButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#FijarFiltro" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/MEDIAN.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro filas:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="nrowLa" blockIncrement="2.0" majorTickUnit="2.0" max="7.0" min="1.0" onMouseDragged="#LaplaceGaussButtomAction" showTickLabels="true" value="3.0" />
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro columnas:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="ncolLa" blockIncrement="2.0" majorTickUnit="2.0" max="7.0" min="1.0" onMouseDragged="#LaplaceGaussButtomAction" showTickLabels="true" value="3.0" />
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="LaplaceGaussButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#FijarFiltro" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/LAPGAU.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Kernel size:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="KSizePre" blockIncrement="1.0" majorTickUnit="2.0" max="7.0" min="3.0" minorTickCount="2" onMouseDragged="#prewittButtomAction" showTickLabels="true" snapToTicks="true" value="3.0" />
+                        <RadioButton fx:id="HPre" mnemonicParsing="false" selected="true" text="Horizontal" textFill="#bcbcbc">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Prewitt" />
+                           </toggleGroup>
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="VPre" mnemonicParsing="false" text="Vertical" textFill="#bcbcbc" toggleGroup="$Prewitt">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="prewittButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#FijarFiltro" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/BORP.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Kernel size:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="KSizeSo" blockIncrement="1.0" majorTickUnit="2.0" max="7.0" min="3.0" minorTickCount="2" onMouseDragged="#sobelButtomAction" showTickLabels="true" snapToTicks="true" value="3.0" />
+                        <RadioButton fx:id="HSo" mnemonicParsing="false" selected="true" text="Horizontal" textFill="#bcbcbc">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Sobel" />
+                           </toggleGroup>
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="VSo" mnemonicParsing="false" text="Vertical" textFill="#bcbcbc" toggleGroup="$Sobel">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="sobelButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#FijarFiltro" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/BORS.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Kernel size:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="KSizeRo" blockIncrement="1.0" majorTickUnit="2.0" max="6.0" min="2.0" minorTickCount="2" onMouseDragged="#robertsButtomAction" showTickLabels="true" snapToTicks="true" value="2.0" />
+                        <RadioButton fx:id="HRo" mnemonicParsing="false" selected="true" text="Horizontal" textFill="#bcbcbc">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="Roberts" />
+                           </toggleGroup>
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </RadioButton>
+                        <RadioButton fx:id="VRo" mnemonicParsing="false" text="Vertical" textFill="#bcbcbc" toggleGroup="$Roberts">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="robertsButtom" fitHeight="110.0" fitWidth="110.0" onMouseClicked="#FijarFiltro" onMouseReleased="#robertsButtomAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/BORR.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro filas:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="ncolKer" blockIncrement="1.0" majorTickUnit="1.0" max="7.0" min="1.0" showTickLabels="true" value="1.0" />
+                        <Text fill="#c3c3c3" strokeType="OUTSIDE" strokeWidth="0.0" text="Nro columnas:">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="nrowKer" blockIncrement="1.0" majorTickUnit="1.0" max="7.0" min="1.0" showTickLabels="true" value="1.0" />
+                        <Button fx:id="GO" blendMode="LIGHTEN" mnemonicParsing="false" onAction="#anyKernelActionButton" prefHeight="17.0" prefWidth="57.0" text="Crear">
+                           <font>
+                              <Font size="9.0" />
+                           </font></Button>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="110.0" fitWidth="110.0" onMouseClicked="#FijarFiltro" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Iconos/PER.png" />
+                     </image>
+                  </ImageView>
+               </buttons>
+            </ButtonBar>
+         </content>
+      </ScrollPane>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>
